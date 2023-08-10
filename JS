@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Joke Notification</title>
+  </head>
+  <body>
+    <script src="js-basic.js"></script>
+  </body>
+</html>
+<script>
+  const url="https://official-joke-api.appspot.com/random_joke"
+const notification = document.getElementById("notification");
+const audio =new Audio("Notification! IPhone ! Notification.mp3");
+setInterval(() => {
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      audio.play();
+      alert(`${data.setup} ${data.punchline}`);
+    });
+}, 50000); // happens every 50 seconds
+</script>
